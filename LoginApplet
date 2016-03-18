@@ -1,0 +1,40 @@
+import java.applet.*;
+import java.awt.*;
+import java.awt.event.*;
+
+public class LoginApplet extends Applet implements ActionListener
+{
+	private String un = "CMIN250";
+	private String pw = "JAVACLASS";
+
+	Label title = new Label ("PASSWORD APPLET");
+	Label unLabel = new Label("Enter your username.");
+		TextField unTextField = new TextField(10);
+	Label pwLabel = new Label("Enter your password");
+		TextField pwTextField = new TextField(10);
+	Button LoginButton = new Button("Login");
+	Label output = new Label("");
+
+	public void init()
+	{
+		setBackground (Color.yellow);
+		add(title);
+		add(unLabel);
+		add(unTextField);
+		add(pwLabel);
+		add(pwTextField);
+		add(LoginButton);
+		add(output);
+
+		LoginButton.addActionListener(this);
+	}
+	public void actionPerformed(ActionEvent e)
+	{
+		if(unTextField.getText().equals(un) && pwTextField.getText().equals(pw))
+			output.setText("Login Successful");
+
+		else
+			output.setText("Username or Password Incorrect!");
+
+	}
+}
